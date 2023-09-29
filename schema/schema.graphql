@@ -1,0 +1,12 @@
+type ToDo {
+  id: String!
+  title: String!
+}
+
+type Query {
+  toDos: [ToDo!]!
+}
+
+type Mutation {
+  newToDo(title: String!): ToDo
+}

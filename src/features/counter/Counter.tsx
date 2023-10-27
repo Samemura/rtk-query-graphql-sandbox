@@ -10,6 +10,7 @@ import {
   selectCount,
 } from "./counterSlice"
 import styles from "./Counter.module.css"
+import {useGetPokemonsQuery} from "../../api";
 
 export function Counter() {
   const count = useAppSelector(selectCount)
@@ -17,6 +18,8 @@ export function Counter() {
   const [incrementAmount, setIncrementAmount] = useState("2")
 
   const incrementValue = Number(incrementAmount) || 0
+  const query = useGetPokemonsQuery()
+  console.log(query.data)
 
   return (
     <div>

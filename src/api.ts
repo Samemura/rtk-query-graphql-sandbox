@@ -1,4 +1,4 @@
-import { createApi } from '@reduxjs/toolkit/query'
+import { createApi } from '@reduxjs/toolkit/query/react'
 import { request, gql, ClientError } from 'graphql-request'
 
 const graphqlBaseQuery =
@@ -15,21 +15,18 @@ const graphqlBaseQuery =
     }
   }
 
-export const api = createApi({
+export const pokemonApi = createApi({
   baseQuery: graphqlBaseQuery({
     baseUrl: 'https://beta.pokeapi.co/graphql/v1beta',
   }),
   endpoints: (builder) => ({
-    getPokemons: builder.query({
+    getPokemons: builder.query<string, void>({
       query: () => ({
         body: gql`
             query samplePokeAPIquery {
                 pokemon_v2_item(limit: 10) {
                     name
                     cost
-                    pokemon_v2_pokemonitems {
-                        rarity
-                    }
                 }
                 pokemon_v2_pokemon(limit: 10) {
                     name
@@ -38,9 +35,8 @@ export const api = createApi({
             }
         `,
       }),
-      transformResponse: (response) => response.data,
+      // transformResponse: (response) => response,
     }),
   }),
 })
-
-// export const { useGetPokemonsQuery } = api
+export const { useGetPokemonsQuery } = pokemonApi

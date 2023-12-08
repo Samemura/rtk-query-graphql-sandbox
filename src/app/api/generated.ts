@@ -57397,14 +57397,14 @@ export type Subscription_RootPokemon_V2_Versionname_StreamArgs = {
   where?: InputMaybe<Pokemon_V2_Versionname_Bool_Exp>;
 };
 
-export type SamplePokeApIqueryQueryVariables = Exact<{ [key: string]: never; }>;
+export type SamplePokemonsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type SamplePokeApIqueryQuery = { __typename?: 'query_root', pokemon_v2_item: Array<{ __typename?: 'pokemon_v2_item', name: string, cost?: number | null }>, pokemon_v2_pokemon: Array<{ __typename?: 'pokemon_v2_pokemon', name: string, height?: number | null }> };
+export type SamplePokemonsQuery = { __typename?: 'query_root', pokemon_v2_item: Array<{ __typename?: 'pokemon_v2_item', name: string, cost?: number | null }>, pokemon_v2_pokemon: Array<{ __typename?: 'pokemon_v2_pokemon', name: string, height?: number | null }> };
 
 
-export const SamplePokeApIqueryDocument = `
-    query samplePokeAPIquery {
+export const SamplePokemonsDocument = `
+    query samplePokemons {
   pokemon_v2_item(limit: 10) {
     name
     cost
@@ -57418,12 +57418,12 @@ export const SamplePokeApIqueryDocument = `
 
 const injectedRtkApi = api.injectEndpoints({
   endpoints: (build) => ({
-    samplePokeAPIquery: build.query<SamplePokeApIqueryQuery, SamplePokeApIqueryQueryVariables | void>({
-      query: (variables) => ({ document: SamplePokeApIqueryDocument, variables })
+    samplePokemons: build.query<SamplePokemonsQuery, SamplePokemonsQueryVariables | void>({
+      query: (variables) => ({ document: SamplePokemonsDocument, variables })
     }),
   }),
 });
 
 export { injectedRtkApi as api };
-export const { useSamplePokeApIqueryQuery, useLazySamplePokeApIqueryQuery } = injectedRtkApi;
+export const { useSamplePokemonsQuery, useLazySamplePokemonsQuery } = injectedRtkApi;
 

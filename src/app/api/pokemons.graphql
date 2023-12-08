@@ -1,4 +1,4 @@
-query samplePokeAPIquery {
+query samplePokemons {
     pokemon_v2_item(limit: 10) {
         name
         cost

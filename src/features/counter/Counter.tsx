@@ -11,7 +11,7 @@ import {
 } from "./counterSlice"
 import styles from "./Counter.module.css"
 import {useGetPokemonsQuery} from "../../api";
-import {useSamplePokeApIqueryQuery} from "../../app/api/generated";
+import {useSamplePokemonsQuery} from "../../app/api/generated";
 
 export function Counter() {
   const count = useAppSelector(selectCount)
@@ -22,8 +22,8 @@ export function Counter() {
   const query = useGetPokemonsQuery()
   console.log('Original query', query.data)
 
-  const query2 = useSamplePokeApIqueryQuery()
-  console.log('Generated query', query2.data)
+  const query2 = useSamplePokemonsQuery()
+  console.log('Generated query', query2)
 
   return (
     <div>

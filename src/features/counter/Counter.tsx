@@ -20,9 +20,10 @@ export function Counter() {
 
   const incrementValue = Number(incrementAmount) || 0
   const query = useGetPokemonsQuery()
-  console.log('Original query', query.data)
+  console.log('Original query', query)
 
   const query2 = useSamplePokemonsQuery()
+ // const { data, isLoading } = useSamplePokemonsQuery()
   console.log('Generated query', query2)
 
   return (
